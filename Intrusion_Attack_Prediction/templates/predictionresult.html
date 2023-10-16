@@ -1,0 +1,77 @@
+{% extends 'design.html' %}
+{% block userblock %}
+{% load static %}
+
+<style>
+    .userpage{
+
+    margin-top:10px;
+    margin-left:90px;
+    padding:10px;
+    width:500px;
+}
+
+.userpage table{
+    width:20em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:;
+}
+
+.userpage table tr th{
+    color:;
+}
+.userpage table tr th{
+background:
+padding:20px;
+}
+.userpage table tr td{
+background:	#8B0000;
+padding:10px;
+}
+.userpage table tr:hover td{
+background:r);
+}
+.userpageimage{
+border-style:solid;
+width:500px;
+height:380px;
+margin-top:-370px;
+margin-left:650px;
+background: url("{% static 'images1.jpg' %}");
+ background-size: 100%100%;
+
+}
+.userpage table label
+{
+    color: white;
+}
+.userpage table select
+{
+    width: 120px;
+    height: 30px;
+}
+.userpage table input[type=text]
+{
+    width: 120px;
+    height: 30px;
+}
+.userpage h1,h2,h3,h4
+{
+    color: white;
+}
+</style>
+<div class="userpage">
+<center><h1>Prediction Result</h1></center>
+<h2>Attack Type</h2>
+<h2>{{ attack_type }}</h2>
+<h2>Class of Attack</h2>
+<h3>{{ attack }}</h3>
+<h3>Recommendation</h3>
+<h4>{{ recommend }}</h4>
+<h3>Precautions</h3>
+<h4>{{ precautions }}</h4>
+
+    </div>
+{% endblock %}

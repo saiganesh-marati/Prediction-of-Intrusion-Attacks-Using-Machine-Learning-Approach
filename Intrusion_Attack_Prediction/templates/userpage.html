@@ -1,0 +1,167 @@
+{% extends 'design.html' %}
+{% block userblock %}
+{% load static %}
+
+<style>
+    .userpage{
+
+    margin-top:10px;
+    margin-left:90px;
+    padding:10px;
+    width:500px;
+}
+
+.userpage table{
+    width:20em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:;
+}
+
+.userpage table tr th{
+    color:;
+}
+.userpage table tr th{
+background:
+padding:20px;
+}
+.userpage table tr td{
+background:	#8B0000;
+padding:10px;
+}
+.userpage table tr:hover td{
+background:r);
+}
+.userpageimage{
+border-style:solid;
+width:500px;
+height:380px;
+margin-top:-270px;
+margin-left:650px;
+background: url("{% static 'images1.jpg' %}");
+ background-size: 100%100%;
+
+}
+.userpage table label
+{
+    color: white;
+}
+.userpage table select
+{
+    width: 120px;
+    height: 30px;
+}
+.userpage table input[type=text]
+{
+    width: 120px;
+    height: 30px;
+}
+</style>
+<div class="userpage">
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label>Protocol Type</label></td>
+        <td><select name="protocol">
+            <option value="1">ICMP</option>
+            <option value="2">TCP</option>
+            <option value="3">UDP</option>
+        </select></td>
+        </tr>
+        <tr>
+            <td><label>Service</label></td>
+            <td><select name="service">
+                <option value="1">ecr_i</option>
+                <option value="2">private</option>
+                <option value="3">http</option>
+                <option value="4">smtp</option>
+                <option value="5">other</option>
+                <option value="6">ftp_data</option>
+                <option value="7">domain_u</option>
+                <option value="8">ftp</option>
+                <option value="9">eco_i</option>
+                <option value="10">telnet</option>
+                <option value="11">auth</option>
+                <option value="12">urp_i</option>
+                <option value="13">ntp_u</option>
+                <option value="14">finger</option>
+                <option value="15">discard</option>
+                <option value="16">Z39_50</option>
+                <option value="17">echo</option>
+                <option value="18">whois</option>
+                <option value="19">nntp</option>
+                <option value="20">remote_job</option>
+                <option value="21">uucp</option>
+                <option value="22">shell</option>
+                <option value="23">domain</option>
+                <option value="24">http_443</option>
+                <option value="25">imap4</option>
+                <option value="26">exec</option>
+                <option value="27">ctf</option>
+                <option value="28">time</option>
+                <option value="29">sunrpc</option>
+                <option value="30">klogin</option>
+                <option value="31">kshell</option>
+                <option value="32">netbios_ns</option>
+                <option value="33">hostnames</option>
+                <option value="34">pm_dump</option>
+                <option value="35">nnsp</option>
+                <option value="36">supdup</option>
+                <option value="37">login</option>
+                <option value="38">IRC</option>
+                <option value="39">sql_net</option>
+                <option value="40">vmnet</option>
+                <option value="41">ldap</option>
+                <option value="42">iso_tsap</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label>Flag</label></td>
+            <td><select name="flag">
+                <option value="1">sf</option>
+                <option value="2">s0</option>
+                <option value="3">REJ</option>
+                <option value="4">RSTR</option>
+                <option value="5">RSTO</option>
+            </select> </td>
+        </tr>
+        <tr>
+            <td><label>Src Bytes</label></td>
+            <td><input type="text" placeholder="0-60000" name="src_bytes" required></td>
+        </tr>
+        <tr>
+            <td><label>Dst Bytes</label></td>
+            <td><input type="text" placeholder="0-300000" name="dst_bytes" required></td>
+        </tr>
+        <tr>
+            <td><label>Is Host Login</label></td>
+            <td><select name="is_host_login">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label>Is Guest Login</label></td>
+            <td><select name="is_guest_login">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label>Diff Srv Rate</label></td>
+            <td><input type="text" placeholder="0-1" name="diff_srv_rate" required></td>
+        </tr>
+        <tr>
+            <td><label>srv_diff_host_rate</label></td>
+            <td><input type="text" placeholder="0-300000" name="srv_diff_host_rate" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+    </div>
+
+{% endblock %}

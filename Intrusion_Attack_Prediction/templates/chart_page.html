@@ -1,0 +1,108 @@
+{% extends 'design.html' %}
+{% block userblock %}
+{% load static %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .userpage{
+
+    margin-top:10px;
+    margin-left:90px;
+    padding:10px;
+    width:500px;
+}
+
+.userpage table{
+    width:20em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:;
+}
+
+.userpage table tr th{
+    color:;
+}
+.userpage table tr th{
+background:
+padding:20px;
+}
+.userpage table tr td{
+background:	#8B0000;
+padding:10px;
+}
+.userpage table tr:hover td{
+background:r);
+}
+.userpageimage{
+border-style:solid;
+width:500px;
+height:380px;
+margin-top:-270px;
+margin-left:650px;
+background: url("{% static 'images1.jpg' %}");
+ background-size: 100%100%;
+
+}
+.userpage table label
+{
+    color: white;
+}
+.userpage table select
+{
+    width: 120px;
+    height: 30px;
+}
+.userpage table input[type=text]
+{
+    width: 120px;
+    height: 30px;
+}
+</style>
+<div class="userpage">
+<h3 style="color:white">Confussion Matrix</h3>
+<canvas id="confusionMatrix"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('confusionMatrix').getContext('2d');
+            var data = {
+                labels: ['True Negative', 'False Positive', 'False Negative', 'True Positive'],
+                datasets: [{
+                    data: {{ confusion_matrix|safe }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            var options = {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        });
+    </script>
+    <h3 style="color: white">Metrics:</h3>
+<img style="float: left;" src="data:image/png;base64,{{ image_data }}">
+    </div>
+
+{% endblock %}
